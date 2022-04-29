@@ -1,2 +1,4 @@
-# anotacoes
-App React pra fazer anotações rápidas
+# Anotações Rápidas com React
+
+Projeto do curso "React: entendendo como a biblioteca funciona" da Alura.
+
