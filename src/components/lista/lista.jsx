@@ -6,15 +6,14 @@ export default class ListaDeNotas extends Component {
   render() {
     return (
       <ul className="lista-notas">
-       {Array.of("Trabalho", "Trabalho", "Estudos").map((categoria, index) => {
-           return (
+        {this.props.notas.map((note, index) => {
+          return (
             <li className="lista-notas_item" key={index}>
-                {/* <div>{categoria}</div> */}
-                <Card />
+              {/* <div>{categoria}</div> */}
+              <Card titulo={note.title} text={note.text} />
             </li>
-           );
-
-       })}
+          );
+        })}
       </ul>
     );
   }
