@@ -4,36 +4,46 @@ import "./style.css";
 export default class Formulario extends Component {
   constructor(props) {
     super(props);
-    this.titulo = "";
-    this.texto = "";
+    this.state = {
+      titulo: "",
+      texto: "",
+    };
   }
 
   _handleTitle(event) {
-    this.titulo = event.target.value;
-    // console.log(this.titulo);
+    this.setState({
+      titulo: event.target.value,
+    });
   }
 
   _handleText(event) {
-    this.texto = event.target.value;
-    // console.log(this.titulo);
+    this.setState({
+      texto: event.target.value,
+    });
   }
 
   _createCard(event) {
     event.preventDefault();
     event.stopPropagation();
-    this.props.createCard(this.titulo, this.texto);
+    this.props.createCard(this.state.titulo, this.state.texto);
+    this.setState({
+      titulo: "",
+      texto: "",
+    });
   }
 
   render() {
     return (
       <form className="form-cadastro" onSubmit={this._createCard.bind(this)}>
         <input
+          value={this.state.titulo}
           type="text"
           placeholder="Título"
           className="form-cadastro_input"
           onChange={this._handleTitle.bind(this)}
         />
         <textarea
+          value={this.state.texto}
           rows={15}
           placeholder="Escreva sua nota..."
           className="form-cadastro_input"

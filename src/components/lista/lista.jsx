@@ -10,7 +10,12 @@ export default class ListaDeNotas extends Component {
           return (
             <li className="lista-notas_item" key={index}>
               {/* <div>{categoria}</div> */}
-              <Card titulo={note.title} text={note.text} />
+              <Card
+                index={index}
+                titulo={note.title}
+                text={note.text}
+                deleteNote={this.props.deleteNote}
+              />
             </li>
           );
         })}
